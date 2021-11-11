@@ -1,33 +1,11 @@
 import { LitElement, html, css } from "lit";
-import {Router} from '@vaadin/router';
-
-window.addEventListener('load', () => { 
-  initRouter();
-});
-
-function initRouter() {
-  const router = new Router(document.querySelector('main'));
-  router.setRoutes([
-    { path: '/', component: 'video-club' },
-    { path: '/buscador', component: 'vc-prueba' },
-    { path: '/series', component: 'video-club' },
-    { path: '/peliculas', component: 'video-club' },
-    { path: '/mi-lista', component: 'video-club' },
-    { path: '/perfil', component: 'video-club' },
-    { path: '(.*)', component: 'video-club' }
-  ]);
-}
+import { Menu } from "./Menu";
 
 export class Navbar extends LitElement {
-  static get properties() {
-    return {
-      title: { type: String },
-    };
-  }
-
   constructor() {
     super();
-    this.title = "Navbar";
+    this.indiceMenu = "";
+    this.menu = Menu;
   }
 
   static get styles() {
@@ -115,12 +93,10 @@ export class Navbar extends LitElement {
     `;
   }
 
-  ocultar() {
-    this.shadowRoot.querySelector(".popup").style.display = "none";
-  }
-
   mostrar() {
-    this.shadowRoot.querySelector(".popup").style.display = "block";
+    this.indiceMenu = document.createElement("menu-lista");
+    document.body.appendChild(this.indiceMenu);
+    this.indiceMenu.menu = this.menu;
   }
 
   render() {
@@ -131,7 +107,7 @@ export class Navbar extends LitElement {
           <button @click=${this.mostrar} class="btn"><img src="../assets/menu-icon.png" width="50" height="50"></button>
         </div>
       </div>
-      <div class="popup">
+      <!-- <div class="popup">
         <ul>
           <li><a href="buscador" style="color: white" @click=${this.ocultar}>Buscador</a></li>
           <li><a href="series" style="color: white" @click=${this.ocultar}>Series TV</a></li>
@@ -140,7 +116,7 @@ export class Navbar extends LitElement {
           <li><a href="perfil" style="color: white" @click=${this.ocultar}>Mi perfil</a></li>
           <li><button @click=${this.ocultar} class="redondo">X</button></li>
         </ul>
-      </div>
+      </div> -->
     `;
   }
 }
