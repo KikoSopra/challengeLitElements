@@ -40,55 +40,9 @@ export class Navbar extends LitElement {
         cursor: pointer;
       }
 
-      .popup {
-        top: 0;
-        left: 0;
-        position: absolute;
-        display: none;
-        opacity: 0.9;
-        width: 100%;
-        height: 100vh;
-        background-color: #3b3b3b;
-        z-index: 1;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .popup ul {
-        list-style: none;
-      }
-
-      li {
-        padding: 1%;
-        text-align: center;
-        font-size: 2em;
-        font-style: bold;
-      }
-
       .btn {
         background: transparent;
         border: none;
-      }
-
-      .redondo {
-        border-radius: 20%;
-        background-color: #b8b8b8;
-        border: none;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-      }
-
-      a:link {
-        text-decoration: none;
-      }
-
-      a:visited {
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
       }
     `;
   }
@@ -107,16 +61,6 @@ export class Navbar extends LitElement {
           <button @click=${this.mostrar} class="btn"><img src="../assets/menu-icon.png" width="50" height="50"></button>
         </div>
       </div>
-      <!-- <div class="popup">
-        <ul>
-          <li><a href="buscador" style="color: white" @click=${this.ocultar}>Buscador</a></li>
-          <li><a href="series" style="color: white" @click=${this.ocultar}>Series TV</a></li>
-          <li><a href="peliculas" style="color: white" @click=${this.ocultar}>Peliculas</a></li>
-          <li><a href="mi-lista" style="color: white" @click=${this.ocultar}>Mi Lista</a></li>
-          <li><a href="perfil" style="color: white" @click=${this.ocultar}>Mi perfil</a></li>
-          <li><button @click=${this.ocultar} class="redondo">X</button></li>
-        </ul>
-      </div> -->
     `;
   }
 }

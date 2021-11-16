@@ -9,7 +9,7 @@ function initRouter() {
   const router = new Router(document.querySelector("main"));
   router.setRoutes([
     { path: "/", component: "video-club" },
-    { path: "/buscador", component: "vc-prueba" },
+    { path: "/buscador", component: "carrusel-vc" },
     { path: "/series", component: "video-club" },
     { path: "/peliculas", component: "video-club" },
     { path: "/mi-lista", component: "video-club" },
@@ -45,6 +45,7 @@ export class Menu extends LitElement {
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 2;
       }
 
       .popup ul {
@@ -52,9 +53,10 @@ export class Menu extends LitElement {
       }
 
       li {
+        padding: 1%;
         text-align: center;
-        font-size: 22px;
-        line-height: 42px;
+        font-size: 2em;
+        font-style: bold;
       }
 
       .redondo {
